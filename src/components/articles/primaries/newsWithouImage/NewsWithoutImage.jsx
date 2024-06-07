@@ -2,20 +2,13 @@ import styles from "./newsWithoutImage.module.sass"
 
 import PropTypes from "prop-types"
 
-export default function NewsWithoutImage({ category, title }) {
+import Category from "../../../category/Category"
 
-    let colorClass = ''
-    if (category == 'Economia' || category == 'economia') {
-        colorClass = styles.red
-    } else if (category == 'Educação' || category == 'educação') {
-        colorClass = styles.blue
-    } else if (category == 'Diversidades' || category == 'diversidades') {
-        colorClass = styles.green
-    }
+export default function NewsWithoutImage({ category, title }) {
 
     return(
         <article className={styles.article}>
-            <p className={`${styles.category} ${colorClass}`}>{category}</p>
+            <Category>{category}</Category>
             <h1>{title}</h1>
         </article>
     )
