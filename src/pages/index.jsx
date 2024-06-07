@@ -1,16 +1,34 @@
 import styles from "../styles/index.module.sass"
 
 import Header from "../components/header/Header"
-import Publibcty from "../components/publicity/Publicity"
+import Publibcity from "../components/publicity/Publicity"
 import NewsWithoutImage from "../components/articles/primaries/newsWithouImage/NewsWithoutImage"
+import NewsWithImage from "../components/articles/primaries/newsWithImage/NewsWithImage"
 
 export default function HomePage() {
     return(
         <div className={styles.container}>
             <Header />
             <div className={styles.content}>
-                <Publibcty />
-                <NewsWithoutImage category="economia" title="Quem não tiver valores a receber nesta etapa poderá ter nas próximas fases, diz BC"/>
+                <Publibcity />
+                <section>
+                    <NewsWithoutImage 
+                        category="economia" 
+                        title="Quem não tiver valores a receber nesta etapa poderá ter nas próximas fases, diz BC"
+                    />
+                    <div className={styles.NewsWithImageContainer}>
+                        <NewsWithImage
+                            category="educação" 
+                            title="Datafolha: Após ensino remoto, 76% precisam de reforço na alfabetização" 
+                            img="aula-pandemia.png"
+                        />
+                        <NewsWithImage 
+                            category="diversidades" 
+                            title="Lotomania: com prêmio de R$ 5 milhões, veja os números sorteados hoje" 
+                            img="cedulas.png"
+                        />
+                    </div>
+                </section>
             </div>
         </div>
     )
