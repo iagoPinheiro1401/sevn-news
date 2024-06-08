@@ -4,6 +4,7 @@ import Header from "../components/header/Header"
 import Publibcity from "../components/publicity/Publicity"
 import NewsWithoutImage from "../components/articles/primaries/newsWithouImage/NewsWithoutImage"
 import NewsWithImage from "../components/articles/primaries/newsWithImage/NewsWithImage"
+import SecundaryNews from "../components/articles/secundary/SecundatyNews"
 
 export default function HomePage() {
     return(
@@ -29,6 +30,16 @@ export default function HomePage() {
                         />
                     </div>
                 </section>
+                <div className={styles.secundaryNewsContainer}>
+                    <SecundaryNews />
+                    <SecundaryNews />
+                    <SecundaryNews />
+                    <SecundaryNews />
+                    <SecundaryNews />
+                    <SecundaryNews />
+                    <SecundaryNews />
+                    <SecundaryNews />
+                </div>
             </div>
         </div>
     )
