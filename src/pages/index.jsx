@@ -11,9 +11,10 @@ import { useState, useEffect } from "react"
 
 export default function HomePage() {
     const [primaryNews, setPrimaryNews] = useState('')
+    const [secundaryNews, setSecundaryNews] = useState([])
 
     useEffect(() => {
-        const fetchNewsData = async () => {
+        const fetchPrimaryNews = async () => {
             try {
                 const response = await axios.get('https://sevn-news-api-mu.vercel.app/api/artigos-principais')
                 setPrimaryNews(response.data)
@@ -22,7 +23,18 @@ export default function HomePage() {
             }
             }
         
-            fetchNewsData();
+            fetchPrimaryNews()
+
+            const fetchSecundaryNews = async () => {
+                try {
+                    const response = await axios.get('https://sevn-news-api-mu.vercel.app/api/artigos-secundarios')
+                    setSecundaryNews(response.data)
+                } catch (error) {
+                    console.error('Error fetching news data:', error)
+                }
+                }
+            
+                fetchSecundaryNews()
     }, [])
 
     return(
@@ -56,14 +68,13 @@ export default function HomePage() {
                     </div>
                 </section>
                 <div className={styles.secundaryNewsContainer}>
-                    <SecundaryNews />
-                    <SecundaryNews />
-                    <SecundaryNews />
-                    <SecundaryNews />
-                    <SecundaryNews />
-                    <SecundaryNews />
-                    <SecundaryNews />
-                    <SecundaryNews />
+                {secundaryNews.map((news) => (
+                    <SecundaryNews 
+                        key={news.id}
+                        category={news.categoria} 
+                        title={news.titulo} 
+                    />
+                ))}
                 </div>
             </div>
         </div>
