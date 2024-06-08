@@ -1,10 +1,19 @@
 import styles from "./secundaryNews.module.sass"
 
-export default function SecundaryNews() {
+import Bar from "../../bar/Bar"
+
+import PropTypes from "prop-types"
+
+export default function SecundaryNews({ category, title }) {
     return(
         <article className={styles.article}>
-            <div/>
-            <p>Quem não tiver valores a receber poderá ter nas próximas fases, diz BC</p>
+            <Bar color={category}/>
+            <p>{title}</p>
         </article>
     )
+}
+
+SecundaryNews.propTypes = {
+    category: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
 }
