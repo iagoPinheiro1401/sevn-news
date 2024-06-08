@@ -12,12 +12,12 @@ export default function HomePage() {
             <Header />
             <div className={styles.content}>
                 <Publibcity />
-                <section>
+                <section className={styles.primaryNewsContainer}>
                     <NewsWithoutImage 
                         category="economia" 
                         title="Quem não tiver valores a receber nesta etapa poderá ter nas próximas fases, diz BC"
                     />
-                    <div className={styles.NewsWithImageContainer}>
+                    <div className={styles.newsWithImageContainer}>
                         <NewsWithImage
                             category="educação" 
                             title="Datafolha: Após ensino remoto, 76% precisam de reforço na alfabetização" 
