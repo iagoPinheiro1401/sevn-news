@@ -23,6 +23,10 @@
     display: flex
     gap: 20px
 
+    @media screen and ( max-width: 600px)
+        flex-direction: column
+        
+
 .secundaryNewsContainer
     @include mixins.responsive-grid(4, 2)
 
