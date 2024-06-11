@@ -4,10 +4,10 @@ import PropTypes from "prop-types"
 
 import Category from "../../../category/Category"
 
-export default function NewsWithoutImage({ category, title }) {
+export default function NewsWithoutImage({ category, title, className }) {
 
     return(
-        <article className={styles.article}>
+        <article className={`${styles.article} ${className}`}>
             <Category>{category}</Category>
             <h1>{title}</h1>
         </article>
@@ -16,5 +16,6 @@ export default function NewsWithoutImage({ category, title }) {
 
 NewsWithoutImage.propTypes = {
     category: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    className: PropTypes.string
 }
