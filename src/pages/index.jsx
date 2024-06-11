@@ -46,14 +46,14 @@ export default function HomePage() {
                     {primaryNews[0] &&
                         <NewsWithoutImage 
                             category={primaryNews[0].categoria}
-                            title="Quem não tiver valores a receber nesta etapa poderá ter nas próximas fases, diz BC"
+                            title={primaryNews[0].titulo}
                         />
                     }
                     <div className={styles.newsWithImageContainer}>
                         {primaryNews[1] &&
                             <NewsWithImage
                                     category={primaryNews[1].categoria} 
-                                    title="Datafolha: Após ensino remoto, 76% precisam de reforço na alfabetização" 
+                                    title={primaryNews[1].titulo} 
                                     img="aula-pandemia.png"
                             />
                         }
@@ -61,7 +61,7 @@ export default function HomePage() {
                         {primaryNews[2] && 
                             <NewsWithImage 
                                 category={primaryNews[2].categoria} 
-                                title="Lotomania: com prêmio de R$ 5 milhões, veja os números sorteados hoje" 
+                                title={primaryNews[2].titulo} 
                                 img="cedulas.png"
                             />
                         }
