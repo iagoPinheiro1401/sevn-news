@@ -8,6 +8,7 @@ import SecundaryNews from "../components/articles/secundary/SecundatyNews"
 
 import axios from "axios"
 import { useState, useEffect } from "react"
+import Link from "next/link"
 
 export default function HomePage() {
     const [primaryNews, setPrimaryNews] = useState('')
@@ -44,36 +45,45 @@ export default function HomePage() {
                 <Publibcity />
                 <section className={styles.primaryNewsContainer}>
                     {primaryNews[0] &&
-                        <NewsWithoutImage 
-                            category={primaryNews[0].categoria}
-                            title={primaryNews[0].titulo}
-                        />
+                        <Link href={`/news/${primaryNews[0].id}`} className={styles.link}>
+                                <NewsWithoutImage 
+                                    category={primaryNews[0].categoria}
+                                    title={primaryNews[0].titulo}
+                                />
+                        </Link>
                     }
+
                     <div className={styles.newsWithImageContainer}>
                         {primaryNews[1] &&
-                            <NewsWithImage
+                            <Link href={`/news/${primaryNews[1].id}`} className={styles.link}>
+                                <NewsWithImage
                                     category={primaryNews[1].categoria} 
                                     title={primaryNews[1].titulo} 
                                     img="aula-pandemia.png"
-                            />
+                                />
+                            </Link>
                         }
 
                         {primaryNews[2] && 
-                            <NewsWithImage 
-                                category={primaryNews[2].categoria} 
-                                title={primaryNews[2].titulo} 
-                                img="cedulas.png"
-                            />
+                            <Link href={`/news/${primaryNews[2].id}`} className={styles.link}>
+                                <NewsWithImage 
+                                    category={primaryNews[2].categoria} 
+                                    title={primaryNews[2].titulo} 
+                                    img="cedulas.png"
+                                />
+                            </Link>
                         }
                     </div>
                 </section>
                 <div className={styles.secundaryNewsContainer}>
                 {secundaryNews.map((news) => (
-                    <SecundaryNews 
-                        key={news.id}
-                        category={news.categoria} 
-                        title={news.titulo} 
-                    />
+                    <Link key={news.id} href={`/news/${news.id}`} className={styles.link}>
+                        <SecundaryNews 
+                            key={news.id}
+                            category={news.categoria} 
+                            title={news.titulo} 
+                        />
+                    </Link>
                 ))}
                 </div>
             </div>
