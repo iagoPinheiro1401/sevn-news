@@ -1,7 +1,10 @@
+import styles from "./news.module.sass"
 
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+
+import Header from "../../components/header/Header"
 
 export default function NewsDetailPage() {
   const router = useRouter();
@@ -24,9 +27,12 @@ export default function NewsDetailPage() {
   }, [id])
 
   return (
-    <div>
-      <h1>{news.titulo}</h1>
-      <p>{news.conteudo}</p>
+    <div className={styles.container}>
+      <Header homePageBack/>
+      <div className={styles.content}>
+        <h1>{news.titulo}</h1>
+        <p>{news.conteudo}</p>
+      </div>
     </div>
   )
 }
